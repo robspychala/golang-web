@@ -3,4 +3,4 @@ golang web template
 
 ## to run
 
-```run this```
+```curl -s https://raw.githubusercontent.com/robspychala/golang-web/master/setup.sh | bash```
