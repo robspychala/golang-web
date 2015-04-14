@@ -4,4 +4,6 @@ mkdir -p go/src
 mkdir -p go/bin
 mkdir -p go/pkg
 
-curl -L https://github.com/robspychala/golang-web/archive/master.tar.gz | tar -xvz -C go/src --strip-components 1 --include *./app --include Vagrantfile
+curl -L https://github.com/robspychala/golang-web/archive/master.tar.gz | tar -xvz -C go/src --strip-components 1 --include *./app
+
+curl -L https://github.com/robspychala/golang-web/archive/master.tar.gz | tar -xvz --strip-components 1 --include *./Vagrantfile
