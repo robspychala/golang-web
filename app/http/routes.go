@@ -13,8 +13,8 @@ func SetupHttpHandler() http.Handler {
   handler.HandleFunc("/", IndexPageHandler).Methods("GET")
   handler.HandleFunc("/api/hi", ApiHelloPageHandler).Methods("GET")
 
-  if os.Getenv("APP_PORT") == "dev" {
-    handler.Handle("/asset", http.FileServer(http.Dir("../http-client-asset")))
+  if os.Getenv("APP_ENV") == "dev" {
+    handler.Handle("/asset/{rest}", http.StripPrefix("/asset/", http.FileServer(http.Dir("../http-client-asset"))))
   }
 
   return handler
