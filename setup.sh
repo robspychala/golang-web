@@ -6,11 +6,11 @@ mkdir -p go/pkg
 
 echo "Downloading vagrant config..."
 
-curl –-silent -L https://github.com/robspychala/golang-web/archive/master.tar.gz | tar -xvz --strip-components 1 --include *./Vagrantfile
+curl –s -L https://github.com/robspychala/golang-web/archive/master.tar.gz | tar -xvz --strip-components 1 --include *./Vagrantfile
 
 echo "Downloading example go files..."
 
-curl -–silent -L https://github.com/robspychala/golang-web/archive/master.tar.gz | tar -xvz -C go/src --strip-components 1 --include *./app
+curl -s -L https://github.com/robspychala/golang-web/archive/master.tar.gz | tar -xvz -C go/src --strip-components 1 --include *./app
 
 echo "Setting up vagrant..."
 
