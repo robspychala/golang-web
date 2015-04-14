@@ -7,8 +7,10 @@ import (
     "database/sql"
     _ "github.com/lib/pq"
 
-    "app/server-shared"
+    "app/shared"
 )
+
+var db *sql.DB
 
 func main() {
 
@@ -20,7 +22,8 @@ func main() {
 
     log.Println("started " + os.Args[0])
     log.Println("using " + os.Getenv("APP_DBURL"))
-    log.Println("environment " + os.Getenv("APP_PORT"))
+    log.Println("environment " + os.Getenv("APP_ENV"))
+    log.Println("url http://" + shared.GetIPAddress() + ":" + os.Getenv("APP_PORT") + "/")
 
     handler := SetupHttpHandler()
 
