@@ -18,10 +18,10 @@ Vagrant.configure(2) do |config|
     sudo -i -u postgres psql -c "CREATE USER vagrant WITH PASSWORD 'vagrant';"
     sudo -i -u postgres createdb vagrant
 
-    echo 'export GOPATH=/vagrant/go;' >> ~/.bashrc
-    echo 'export APP_PORT=8080;' >> ~/.bashrc
-    echo 'export APP_DBURL=postgres://postgres:postgres@localhost/vagrant?sslmode=disable;' >> ~/.bashrc
-    echo 'export APP_ENV=dev;' >> ~/.bashrc
+    echo 'export GOPATH=/vagrant/go;' >> /home/vagrant/.bashrc
+    echo 'export APP_PORT=8080;' >> /home/vagrant/.bashrc
+    echo 'export APP_DBURL=postgres://postgres:postgres@localhost/vagrant?sslmode=disable;' >> /home/vagrant/.bashrc
+    echo 'export APP_ENV=dev;' >> /home/vagrant/.bashrc
 
   SHELL
 
