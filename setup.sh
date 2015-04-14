@@ -4,8 +4,14 @@ mkdir -p go/src
 mkdir -p go/bin
 mkdir -p go/pkg
 
-curl -L https://github.com/robspychala/golang-web/archive/master.tar.gz | tar -xvz -C go/src --strip-components 1 --include *./app
+echo "Downloading vagrant config..."
 
-curl -L https://github.com/robspychala/golang-web/archive/master.tar.gz | tar -xvz --strip-components 1 --include *./Vagrantfile
+curl –-silent -L https://github.com/robspychala/golang-web/archive/master.tar.gz | tar -xvz --strip-components 1 --include *./Vagrantfile
+
+echo "Downloading example go files..."
+
+curl -–silent -L https://github.com/robspychala/golang-web/archive/master.tar.gz | tar -xvz -C go/src --strip-components 1 --include *./app
+
+echo "Setting up vagrant..."
 
 vagrant up
