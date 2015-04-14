@@ -6,7 +6,7 @@ mkdir -p go/pkg
 
 echo "Downloading vagrant config..."
 
-curl –s -L https://github.com/robspychala/golang-web/archive/master.tar.gz | tar -xvz --strip-components 1 --include *./Vagrantfile
+curl -s -L https://github.com/robspychala/golang-web/archive/master.tar.gz | tar -xvz --strip-components 1 --include *./Vagrantfile
 
 echo "Downloading example go files..."
 
