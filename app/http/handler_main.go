@@ -9,7 +9,7 @@ import (
     "app/shared"
 )
 
-var indexTempl = template.Must(template.ParseFiles("server-template/index.html"))
+var indexTempl = template.Must(template.ParseFiles("http-template/index.html"))
 
 func IndexPageHandler(w http.ResponseWriter, r *http.Request) {
 
