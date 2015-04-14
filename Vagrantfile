@@ -5,7 +5,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", inline: <<-SHELL
 
     sudo pacman -Syu
-    sudo pacman -S go nginx git postgresql
+    sudo pacman -S --noconfirm go nginx git postgresql
 
     sudo mkdir /var/lib/postgres/data
     sudo chown -c -R postgres:postgres /var/lib/postgres
