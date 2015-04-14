@@ -15,3 +15,5 @@ curl -s -L https://github.com/robspychala/golang-web/archive/master.tar.gz | tar
 echo "Setting up vagrant..."
 
 vagrant up
+
+echo "Finished."
