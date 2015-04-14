@@ -6,6 +6,8 @@ import (
     "net/http"
     "database/sql"
     _ "github.com/lib/pq"
+
+    "app/server-shared"
 )
 
 func main() {
@@ -16,9 +18,11 @@ func main() {
       log.Fatal(err)
     }
 
-    log.Print("started " + os.Args[0])
+    log.Println("started " + os.Args[0])
+    log.Println("using " + os.Getenv("APP_DBURL"))
+    log.Println("environment " + os.Getenv("APP_PORT"))
 
-    handler := SetupRouter()
+    handler := SetupHttpHandler()
 
     log.Fatal(http.ListenAndServe(":" + os.Getenv("APP_PORT"), handler))
 

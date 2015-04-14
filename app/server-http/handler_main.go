@@ -1,15 +1,15 @@
 package main
 
 import (
-    "os"
     "log"
+    "os"
     "net/http"
     "html/template"
 
     "app/shared"
 )
 
-var indexTempl = template.Must(template.ParseFiles("template/index.html"))
+var indexTempl = template.Must(template.ParseFiles("server-template/index.html"))
 
 func IndexPageHandler(w http.ResponseWriter, r *http.Request) {
 
