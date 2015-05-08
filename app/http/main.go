@@ -1,32 +1,33 @@
 package main
 
 import (
-    "log"
-    "os"
-    "net/http"
-    "database/sql"
-    _ "github.com/lib/pq"
+	"database/sql"
+	_ "github.com/lib/pq"
+	"log"
+	"net/http"
+	"os"
 
-    "app/shared"
+	"app/shared"
 )
 
 var db *sql.DB
 
 func main() {
 
-    var err error
-    db, err = sql.Open("postgres", os.Getenv("APP_DBURL"))
-    if err != nil {
-      log.Fatal(err)
-    }
+	var err error
+	db, err = sql.Open("postgres", shared.GetDBUrl())
+	if err != nil {
+		log.Fatal(err)
+	}
 
-    log.Println("started " + os.Args[0])
-    log.Println("using " + os.Getenv("APP_DBURL"))
-    log.Println("environment " + os.Getenv("APP_ENV"))
-    log.Println("url http://" + shared.GetIPAddress() + ":" + os.Getenv("APP_PORT") + "/")
+	log.Println("started " + os.Args[0])
+	log.Println("using " + shared.GetDBUrl())
+	log.Println("environment " + os.Getenv("APP_ENV"))
 
-    handler := SetupHttpHandler()
+	if shared.IsDevEnvironment() {
+		log.Println("url http://" + shared.GetIPAddress() + ":" + os.Getenv("APP_PORT") + "/")
+	}
 
-    log.Fatal(http.ListenAndServe(":" + os.Getenv("APP_PORT"), handler))
+	log.Fatal(http.ListenAndServe(":"+os.Getenv("APP_PORT"), NewHttpHandler()))
 
 }
