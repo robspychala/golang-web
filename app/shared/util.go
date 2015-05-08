@@ -20,3 +20,11 @@ func GetIPAddress() string {
   return ipaddress
 
 }
+
+func GetDBUrl() string {
+  return os.Getenv("APP_DBURL")
+}
+
+func IsDevEnvironment() bool {
+  return os.Getenv("APP_ENV") == "dev"
+}
